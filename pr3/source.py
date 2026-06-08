@@ -9,9 +9,9 @@ def validate_password(password: str) -> bool:
     if len(password) < 8:
         return False
         
-    if " " in password:
+ #   if " " in password:
         return False
-        
+ #       
     has_letter = any(c.isalpha() for c in password)
     has_digit = any(c.isdigit() for c in password)
     
