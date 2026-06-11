@@ -11,14 +11,12 @@ def driver():
         
     options = webdriver.ChromeOptions()
     options.add_argument('--window-size=1280,800')
-    options.add_argument('--log-level=3')  # Убирает лишний спам в консоли
+    options.add_argument('--log-level=3')  
     
-    # Пытаемся установить через менеджер, если упадёт из-за кодировки — запустит дефолтный
     try:
         driver_path = ChromeDriverManager().install()
         service = Service(driver_path)
     except UnicodeDecodeError:
-        # Если Windows опять ругается на кириллицу в путях
         service = Service()
 
     drv = webdriver.Chrome(service=service, options=options)
